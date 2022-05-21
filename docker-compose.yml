@@ -1,0 +1,14 @@
+version: "2.2"
+services:
+  postgres:
+    image: postgres:13.3
+    environment:
+      POSTGRES_DB: "BD"
+      POSTGRES_USER: "r"
+      POSTGRES_PASSWORD: "123456"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    volumes:
+      - ../2. Init Database:/docker-entrypoint-initdb.d
+      - .:/var/lib/postgresql/data
+    ports:
+      - "5532:5432"
